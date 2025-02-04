@@ -53,9 +53,18 @@ public class DimensionPractice {
 			System.out.println("============================");
 			System.out.print("검색할 학생의 이름을 입력하세요: ");
 			String findName = sc.next();
+			char[] order = {'첫', '두', '세'};
+			
 			for(int i = 0; i < 3; i++) {
 	            for (int j = 0; j < 2; j++) {
-	                System.out.printf("검색하신 %s 학생은 %d분단 %c번째 줄 %s 쪽에 있습니다.", findName);
+	            	if(findName.equals(group1[i][j])) {
+	            		// 0,2,4,6
+		            	if(i%2==0) {
+		            		System.out.printf("검색하신 %s 학생은 1분단 %c번째 줄 왼쪽에 있습니다.", findName, order);
+		            	}else {
+		            		System.out.printf("검색하신 %s 학생은 1분단 %c번째 줄 오른쪽에 있습니다.", findName, order);
+		            	}
+		            }
 	            }
 			}
 	
