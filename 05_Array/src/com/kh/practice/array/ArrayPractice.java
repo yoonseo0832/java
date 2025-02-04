@@ -23,7 +23,54 @@ public class ArrayPractice {
 		practice16();
 	}
 	public static void practice16() {
-		
+		Scanner sc = new Scanner(System.in);
+
+        System.out.print("배열의 크기를 입력하세요 : ");
+        int n = sc.nextInt();
+        sc.nextLine(); 
+
+        String[] arr = new String[n]; 
+
+        for (int i = 0; i < n; i++) {
+            System.out.printf("%d번째 문자열 : ", i + 1);
+            arr[i] = sc.nextLine();
+        }
+
+        while (true) {
+            System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+            String answer = sc.next().trim().toLowerCase();
+            sc.nextLine(); 
+
+            if (answer.equals("n")) {
+                break;
+            } else if (answer.equals("y")) {
+                System.out.print("더 입력하고 싶은 개수 : ");
+                int addCount = sc.nextInt();
+                sc.nextLine();
+
+                String[] newArr = new String[arr.length + addCount];
+
+                System.arraycopy(arr, 0, newArr, 0, arr.length);
+
+                for (int i = arr.length; i < newArr.length; i++) {
+                    System.out.printf("%d번째 문자열 : ", i + 1);
+                    newArr[i] = sc.nextLine();
+                }
+
+                arr = newArr;
+            } else {
+                System.out.println("잘못된 입력입니다. 'Y' 또는 'N'을 입력하세요.");
+            }
+        }
+
+        System.out.print("[ ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println(" ]");
 	}
 	public static void practice15(){
 		Scanner sc = new Scanner(System.in);
